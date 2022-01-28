@@ -1,36 +1,24 @@
 import { IsNotEmpty } from 'class-validator';
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { Member } from '@interfaces/member.interface';
+import { BibleClassMembership } from '@interfaces/bible-class-membership.interface';
 
 @Entity()
-export class MemberEntity extends BaseEntity implements Member {
+export class BibleClassMembershipEntity extends BaseEntity implements BibleClassMembership {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   @IsNotEmpty()
-  @Unique(['email'])
-  email: string;
+  memberId: number;
 
   @Column()
   @IsNotEmpty()
-  firstName: string;
+  bibleClassId: number;
 
   @Column()
   @IsNotEmpty()
-  lastName: string;
+  role: string;
 
-  @Column()
-  @IsNotEmpty()
-  gender: string;
-
-  @Column()
-  dateOfBirth: Date;
-
-  @Column()
-  @IsNotEmpty()
-  phoneNumber: string;
-  
   @Column()
   @CreateDateColumn()
   createdAt: Date;

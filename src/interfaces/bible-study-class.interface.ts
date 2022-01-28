@@ -3,6 +3,7 @@ import { Church } from "./church.interface";
 export interface BibleStudyClass {
     id:number;
     name:string;
-    church: Church;
+    churchId:number;
+    church?: Church;
     venue: string
 }

@@ -1,36 +1,28 @@
 import { IsNotEmpty } from 'class-validator';
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { Member } from '@interfaces/member.interface';
+import { CellAttendance } from '@interfaces/cell-attendance';
 
 @Entity()
-export class MemberEntity extends BaseEntity implements Member {
+export class CellAttendanceEntity extends BaseEntity implements CellAttendance {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   @IsNotEmpty()
-  @Unique(['email'])
-  email: string;
+  memberId: number;
 
   @Column()
   @IsNotEmpty()
-  firstName: string;
+  bibleClassId: number;
 
   @Column()
   @IsNotEmpty()
-  lastName: string;
+  yearId: number;
 
   @Column()
   @IsNotEmpty()
-  gender: string;
+  weekId: number;
 
-  @Column()
-  dateOfBirth: Date;
-
-  @Column()
-  @IsNotEmpty()
-  phoneNumber: string;
-  
   @Column()
   @CreateDateColumn()
   createdAt: Date;

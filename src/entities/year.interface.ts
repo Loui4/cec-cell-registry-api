@@ -1,36 +1,24 @@
 import { IsNotEmpty } from 'class-validator';
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn } from 'typeorm';
-import { Member } from '@interfaces/member.interface';
+import { Year } from '@interfaces/year.interface';
 
 @Entity()
-export class MemberEntity extends BaseEntity implements Member {
+export class YearEntity extends BaseEntity implements Year {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   @IsNotEmpty()
-  @Unique(['email'])
-  email: string;
+  year: string;
 
   @Column()
   @IsNotEmpty()
-  firstName: string;
+  start: string;
 
   @Column()
   @IsNotEmpty()
-  lastName: string;
+  to: string;
 
-  @Column()
-  @IsNotEmpty()
-  gender: string;
-
-  @Column()
-  dateOfBirth: Date;
-
-  @Column()
-  @IsNotEmpty()
-  phoneNumber: string;
-  
   @Column()
   @CreateDateColumn()
   createdAt: Date;
