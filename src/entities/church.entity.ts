@@ -1,6 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { Church } from '@interfaces/church.interface';
+import { BibleStudyClassEntity } from './bible-class.entity';
 
 @Entity()
 export class ChurchEntity extends BaseEntity implements Church {
@@ -15,6 +16,9 @@ export class ChurchEntity extends BaseEntity implements Church {
   @Column()
   @IsNotEmpty()
   location: string;
+
+  @OneToMany(type=>BibleStudyClassEntity, bibleStudy=>bibleStudy.church)
+  bibleStudyClasses: BibleStudyClassEntity[]
 
   @Column()
   @CreateDateColumn()

@@ -1,6 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, ManyToMany } from 'typeorm';
 import {  BibleStudyClass } from '@interfaces/bible-study-class.interface';
+import { ChurchEntity } from './church.entity';
 
 @Entity()
 export class BibleStudyClassEntity extends BaseEntity implements  BibleStudyClass {
@@ -19,6 +20,9 @@ export class BibleStudyClassEntity extends BaseEntity implements  BibleStudyCla
   @Column()
   @IsNotEmpty()
   churchId: number;
+
+  @ManyToMany(type=>ChurchEntity, church=>church.bibleStudyClasses)
+  church: ChurchEntity
 
   @Column()
   @CreateDateColumn()
