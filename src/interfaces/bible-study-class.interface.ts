@@ -1,6 +1,6 @@
 import { Church } from "./church.interface";
 
-export interface BibleStudyClass {
+export interface BibleClass {
     id:number;
     name:string;
     churchId:number;

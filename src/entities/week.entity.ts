@@ -1,7 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { Week } from '@interfaces/week.interface';
-import { CellAttendanceEntity } from './cell-attendance.interface';
+import { CellAttendanceEntity } from './cell-attendance.entity';
 
 @Entity()
 export class WeekEntity extends BaseEntity implements Week {

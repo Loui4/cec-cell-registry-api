@@ -1,8 +1,8 @@
 import { IsNotEmpty } from 'class-validator';
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { Member } from '@interfaces/member.interface';
-import { CellAttendanceEntity } from './cell-attendance.interface';
-import { BibleClassMembershipEntity } from './bible-class-membership.interface';
+import { CellAttendanceEntity } from './cell-attendance.entity';
+import { BibleClassMembershipEntity } from './bible-class-membership.entity';
 
 @Entity()
 export class MemberEntity extends BaseEntity implements Member {

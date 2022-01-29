@@ -1,8 +1,8 @@
 import { IsNotEmpty } from 'class-validator';
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, ManyToMany, ManyToOne } from 'typeorm';
-import { CellAttendance } from '@interfaces/cell-attendance';
-import { YearEntity } from './year.interface';
-import { WeekEntity } from './week.interface';
+import { CellAttendance } from '@/interfaces/cell-attendance.interface';
+import { YearEntity } from './year.entity';
+import { WeekEntity } from './week.entity';
 import { BibleStudyClassEntity } from './bible-class.entity';
 import { MemberEntity } from './member.entity';
 

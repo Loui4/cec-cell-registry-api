@@ -1,11 +1,11 @@
 import { IsNotEmpty } from 'class-validator';
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne } from 'typeorm';
-import {  BibleStudyClass } from '@interfaces/bible-study-class.interface';
+import {  BibleClass } from '@interfaces/bible-study-class.interface';
 import { ChurchEntity } from './church.entity';
-import { CellAttendanceEntity } from './cell-attendance.interface';
+import { CellAttendanceEntity } from './cell-attendance.entity';
 
 @Entity()
-export class BibleStudyClassEntity extends BaseEntity implements  BibleStudyClass {
+export class BibleClassEntity extends BaseEntity implements  BibleClass {
   @PrimaryGeneratedColumn()
   id: number;
 

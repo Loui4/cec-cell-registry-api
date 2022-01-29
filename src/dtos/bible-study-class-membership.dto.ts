@@ -1,6 +1,6 @@
 import { IsNumber, IsString } from 'class-validator';
 
-export class CreateBibleStudyClassMembershipDto {
+export class CreateBibleClassMembershipDto {
   @IsString()
   public role: string;
 
