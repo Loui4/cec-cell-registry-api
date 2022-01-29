@@ -1,7 +1,8 @@
 import { IsNotEmpty } from 'class-validator';
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, ManyToMany } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne } from 'typeorm';
 import {  BibleStudyClass } from '@interfaces/bible-study-class.interface';
 import { ChurchEntity } from './church.entity';
+import { CellAttendanceEntity } from './cell-attendance.interface';
 
 @Entity()
 export class BibleStudyClassEntity extends BaseEntity implements  BibleStudyClass {
@@ -21,8 +22,11 @@ export class BibleStudyClassEntity extends BaseEntity implements  BibleStudyCla
   @IsNotEmpty()
   churchId: number;
 
-  @ManyToMany(type=>ChurchEntity, church=>church.bibleStudyClasses)
+  @ManyToOne(type=>ChurchEntity, church=>church.bibleStudyClasses)
   church: ChurchEntity
+
+  @OneToMany(type=>CellAttendanceEntity, cellAttendance=>cellAttendance.week)
+  cellAttendances: CellAttendanceEntity[]
 
   @Column()
   @CreateDateColumn()

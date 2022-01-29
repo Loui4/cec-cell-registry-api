@@ -1,6 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { Year } from '@interfaces/year.interface';
+import { CellAttendanceEntity } from './cell-attendance.interface';
 
 @Entity()
 export class YearEntity extends BaseEntity implements Year {
@@ -18,6 +19,9 @@ export class YearEntity extends BaseEntity implements Year {
   @Column()
   @IsNotEmpty()
   to: string;
+
+  @OneToMany(type=>CellAttendanceEntity, cellAttendance=>cellAttendance.year)
+  cellAttendances: CellAttendanceEntity[]
 
   @Column()
   @CreateDateColumn()

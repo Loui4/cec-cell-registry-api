@@ -1,6 +1,8 @@
 import { IsNotEmpty } from 'class-validator';
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { Member } from '@interfaces/member.interface';
+import { CellAttendanceEntity } from './cell-attendance.interface';
+import { BibleClassMembershipEntity } from './bible-class-membership.interface';
 
 @Entity()
 export class MemberEntity extends BaseEntity implements Member {
@@ -30,6 +32,13 @@ export class MemberEntity extends BaseEntity implements Member {
   @Column()
   @IsNotEmpty()
   phoneNumber: string;
+
+  @OneToMany(type=>CellAttendanceEntity, cellAttendance=>cellAttendance.member)
+  cellAttendances: CellAttendanceEntity[]
+
+
+  @OneToMany(type=>BibleClassMembershipEntity, memberShip=>memberShip.member)
+  memberShips: BibleClassMembershipEntity[]
   
   @Column()
   @CreateDateColumn()

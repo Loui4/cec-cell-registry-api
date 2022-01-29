@@ -1,6 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
-import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, ManyToOne } from 'typeorm';
 import { BibleClassMembership } from '@interfaces/bible-class-membership.interface';
+import { MemberEntity } from './member.entity';
 
 @Entity()
 export class BibleClassMembershipEntity extends BaseEntity implements BibleClassMembership {
@@ -18,6 +19,9 @@ export class BibleClassMembershipEntity extends BaseEntity implements BibleClass
   @Column()
   @IsNotEmpty()
   role: string;
+
+  @ManyToOne(type=>MemberEntity, bible=>bible.memberShips)
+  member: MemberEntity;
 
   @Column()
   @CreateDateColumn()
