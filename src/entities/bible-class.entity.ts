@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
 import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, OneToMany, ManyToOne } from 'typeorm';
-import {  BibleClass } from '@interfaces/bible-study-class.interface';
+import {  BibleClass } from '@/interfaces/bible-class.interface';
 import { ChurchEntity } from './church.entity';
 import { CellAttendanceEntity } from './cell-attendance.entity';
 

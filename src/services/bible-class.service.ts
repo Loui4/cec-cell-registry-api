@@ -2,7 +2,7 @@ import { EntityRepository, Repository } from 'typeorm';
 import { CreateBibleClassDto } from '@dtos/bible-class.dto';
 import { BibleClassEntity } from '@entities/bible-class.entity';
 import { HttpException } from '@exceptions/HttpException';
-import { BibleClass } from '@interfaces/bible-study-class.interface';
+import { BibleClass } from '@/interfaces/bible-class.interface';
 import { isEmpty } from '@utils/util';
 
 @EntityRepository()

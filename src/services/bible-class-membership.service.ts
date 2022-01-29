@@ -1,5 +1,5 @@
 import { EntityRepository, Repository } from 'typeorm';
-import { CreateBibleClassMembershipDto } from '@dtos/bible-study-class-membership.dto';
+import { CreateBibleClassMembershipDto } from '@/dtos/bible-class-membership.dto';
 import { BibleClassMembershipEntity } from '@entities/bible-class-membership.entity';
 import { HttpException } from '@exceptions/HttpException';
 import { BibleClassMembership } from '@interfaces/bible-class-membership.interface';

@@ -1,4 +1,4 @@
-import { BibleClass } from "./bible-study-class.interface";
+import { BibleClass } from "./bible-class.interface";
 import { Member } from "./member.interface";
 
 export interface BibleClassMembership{
