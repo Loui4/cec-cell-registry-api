@@ -27,12 +27,12 @@ class yearsController {
     }
   };
 
-  public createyear = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  public createYear = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const yearData: CreateyearDto = req.body;
-      const createyearData: year = await this.yearService.createyear(yearData);
+      const createYearData: year = await this.yearService.createYear(yearData);
 
-      res.status(201).json({ data: createyearData, message: 'created' });
+      res.status(201).json({ data: createYearData, message: 'created' });
     } catch (error) {
       next(error);
     }
@@ -50,7 +50,7 @@ class yearsController {
     }
   };
 
-  public deleteyear = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+  public deleteYear = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const yearId = Number(req.params.id);
       const deleteYearData: Year = await this.yearService.deleteYear(yearId);
