@@ -3,7 +3,7 @@ import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateC
 import { CellAttendance } from '@/interfaces/cell-attendance.interface';
 import { YearEntity } from './year.entity';
 import { WeekEntity } from './week.entity';
-import { BibleStudyClassEntity } from './bible-class.entity';
+import { BibleClassEntity } from './bible-class.entity';
 import { MemberEntity } from './member.entity';
 
 @Entity()
@@ -33,8 +33,8 @@ export class CellAttendanceEntity extends BaseEntity implements CellAttendance {
   @ManyToOne(type=>WeekEntity, week=>week.cellAttendances)
   week: WeekEntity;
 
-  @ManyToOne(type=>BibleStudyClassEntity, bible=>bible.cellAttendances)
-  bibleStudy: BibleStudyClassEntity;
+  @ManyToOne(type=>BibleClassEntity, bible=>bible.cellAttendances)
+  bibleClass: BibleClassEntity;
 
   @ManyToOne(type=>MemberEntity, bible=>bible.cellAttendances)
   member: MemberEntity;

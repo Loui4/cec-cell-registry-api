@@ -8,7 +8,7 @@ import { isEmpty } from '@utils/util';
 @EntityRepository()
 class BibleClassMembershipService extends Repository<BibleClassMembershipEntity> {
   public async findAllBibleClassMembership(): Promise<BibleClassMembership[]> {
-    const bibleClassMemberships: BibleClassMembership[] = await BibleClassMembershipEntity.find();
+    const bibleClassMemberships: BibleClassMembership[] = await BibleClassMembershipEntity.find({relations:['member','bibleClass']});
     return bibleClassMemberships;
   }
 

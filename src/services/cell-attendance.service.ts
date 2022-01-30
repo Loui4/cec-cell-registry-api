@@ -8,7 +8,7 @@ import { isEmpty } from '@utils/util';
 @EntityRepository()
 class CellAttendanceService extends Repository<CellAttendanceEntity> {
   public async findAllCellAttendance(): Promise<CellAttendance[]> {
-    const cellAttendances: CellAttendance[] = await CellAttendanceEntity.find();
+    const cellAttendances: CellAttendance[] = await CellAttendanceEntity.find({relations:['year','week','bibleClass','member']});
     return cellAttendances;
   }
 

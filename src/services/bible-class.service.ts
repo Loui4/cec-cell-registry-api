@@ -8,7 +8,7 @@ import { isEmpty } from '@utils/util';
 @EntityRepository()
 class BibleClassService extends Repository<BibleClassEntity> {
   public async findAllBibleClass(): Promise<BibleClass[]> {
-    const bibleClasses: BibleClass[] = await BibleClassEntity.find();
+    const bibleClasses: BibleClass[] = await BibleClassEntity.find({relations:['church']});
     return bibleClasses;
   }
 

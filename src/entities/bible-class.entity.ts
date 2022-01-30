@@ -3,6 +3,7 @@ import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateC
 import {  BibleClass } from '@/interfaces/bible-class.interface';
 import { ChurchEntity } from './church.entity';
 import { CellAttendanceEntity } from './cell-attendance.entity';
+import { BibleClassMembershipEntity } from './bible-class-membership.entity';
 
 @Entity()
 export class BibleClassEntity extends BaseEntity implements  BibleClass {
@@ -25,8 +26,11 @@ export class BibleClassEntity extends BaseEntity implements  BibleClass {
   @ManyToOne(type=>ChurchEntity, church=>church.bibleStudyClasses)
   church: ChurchEntity
 
-  @OneToMany(type=>CellAttendanceEntity, cellAttendance=>cellAttendance.week)
+  @OneToMany(type=>CellAttendanceEntity, cellAttendance=>cellAttendance.bibleClass)
   cellAttendances: CellAttendanceEntity[]
+
+  @OneToMany(type=>BibleClassMembershipEntity, memberShip=>memberShip.bibleClass)
+  memberships: BibleClassMembershipEntity[]
 
   @Column()
   @CreateDateColumn()

@@ -9,4 +9,7 @@ export class CreateBibleClassMembershipDto {
 
   @IsNumber()
   public bibleClassId: number;
+
+  @IsNumber()
+  public memberId:number;
 }
